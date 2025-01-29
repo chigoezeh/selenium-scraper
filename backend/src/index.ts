@@ -1,7 +1,8 @@
 import express from "express";
 import cors from "cors";
 import bodyParser from "body-parser";
-import { scrapeHeaders, scrapeTables } from "./actions";
+import { scrapeHeaders } from "./actions/scrapeHeaders";
+import { scrapeTables } from "./actions/scrapeTables";
 
 const app = express();
 const PORT = 5000;
@@ -9,7 +10,6 @@ const PORT = 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Define routes
 app.post("/scrape", async (req, res) => {
   const { actions } = req.body;
 
